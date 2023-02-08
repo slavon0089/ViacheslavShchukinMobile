@@ -29,17 +29,16 @@ public class WebSearchMobileTests extends BaseTest {
         WebPageObject wpo = new WebPageObject(getDriver());
 
         //need confirm cookies in cloud
-            wpo.downBtn.click();
-            wpo.downBtn.click();
-            wpo.downBtn.click();
-            wpo.cookiesBtn.click();
+        wpo.downBtn.click();
+        wpo.downBtn.click();
+        wpo.downBtn.click();
+        wpo.cookiesBtn.click();
 
         wpo.getSearchField().sendKeys(googleSearchText + Keys.ENTER);
 
         assertTrue(wpo.getSearchRes().isEnabled());
 
     }
-
 
 
 }
