@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NativePageObject  {
+public class NativePageObject {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@value='Register new account']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_button")
     WebElement registerNewAccountBtn;
@@ -21,9 +21,7 @@ public class NativePageObject  {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSecureTextField[@value='Required']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/login_pwd")
     WebElement passwordField;
-    @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/decor_content_parent")
-    WebElement mainPageLogo;
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@name='Budget']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@value='Budget']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/expenses_list")
     WebElement budgetActivityList;
 
@@ -47,9 +45,8 @@ public class NativePageObject  {
     WebElement confirmRegBtn;
 
 
-
     public NativePageObject(AppiumDriver appiumDriver) {
-        PageFactory.initElements( new AppiumFieldDecorator(appiumDriver), this);
+        PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }
 
 

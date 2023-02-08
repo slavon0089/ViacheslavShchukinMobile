@@ -23,8 +23,6 @@ public class WebSearchMobileTests extends BaseTest {
         new WebDriverWait(getDriver(), 10).until(
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
-
-
         getDriver().get(baseURL); // open google homepage
         WebPageObject wpo = new WebPageObject(getDriver());
 
@@ -33,9 +31,7 @@ public class WebSearchMobileTests extends BaseTest {
         wpo.downBtn.click();
         wpo.downBtn.click();
         wpo.cookiesBtn.click();
-
         wpo.getSearchField().sendKeys(googleSearchText + Keys.ENTER);
-
         assertTrue(wpo.getSearchRes().isEnabled());
 
     }

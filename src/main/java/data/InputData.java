@@ -10,8 +10,8 @@ import java.util.Properties;
 public class InputData {
     public static String googleSearchText = "EPAM";
     public static String baseURL = "http://google.com";
-    public static String userName = RandomStringUtils.random(10,true,false) +"@gmail.com";;
-    public static String password = RandomStringUtils.random(8,true,true);
+    public static String userName = RandomStringUtils.random(10, true, false) + "@gmail.com";
+    public static String password = RandomStringUtils.random(8, true, true);
 
 
     private static final String PATH_NAME = "src/test/resources/config.properties";
@@ -19,7 +19,7 @@ public class InputData {
     public static Properties getPropertyObject() {
         Properties prop = new Properties();
         String path = new File(PATH_NAME).getAbsolutePath();
-        try (FileInputStream fp = new FileInputStream(path)){
+        try (FileInputStream fp = new FileInputStream(path)) {
             prop.load(fp);
         } catch (IOException e) {
             e.printStackTrace();
