@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 
 public class WebSearchMobileTests extends BaseTest {
 
-    @Test(groups = {"web"}, description = "Search EPAM in google")
+    @Test(groups = {"cloud"}, description = "Search EPAM in google")
     public void searchWebTest() {
 
         // Make sure that page has been loaded completely
@@ -23,6 +23,12 @@ public class WebSearchMobileTests extends BaseTest {
 
         getDriver().get(baseURL); // open google homepage
         WebPageObject wpo = new WebPageObject(getDriver());
+        //need confirm cookies in cloud
+        wpo.downBtn.click();
+        wpo.downBtn.click();
+        wpo.downBtn.click();
+        wpo.cookiesBtn.click();
+
         wpo.getSearchField().sendKeys(googleSearchText + Keys.ENTER);
 
         assertTrue(wpo.getSearchRes().isEnabled());

@@ -32,14 +32,15 @@
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
+<!--                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>-->
+                        <ts.appium>https://${project.name}:${token}@app.mobitru.com/wd/hub</ts.appium>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -47,7 +48,10 @@
             </plugin>
         </plugins>
     </build>
-
+    <properties>
+        <token>MW4ivmOdZ%2FgE8aIK7XtMv9TxRtFDT2d6kpkmgFBTFz30vNAU72hqoQZPzbIgtzlLVGkvlvWkMlEQt0dqsYSuAcm8ybHVTHh1YAy3TSJ1RzbOMtJr5MwlCQcUywxkvD6iQ%2BiGlMMnpbULZQgbEVbLuGfnxj3zjI%2BHht3qI%2BW%2BgEyo%2BNOOCKGBuC6UicjLj9%2Fit1nDdJJPrS%2FrHSA99mcCqGKKm8ucmd8UPhafnM%2BeXPAQcgltiBz7YroER3WiByDHWqZIPeNZP%2BxJXdhghAXiERgQvbwDWx2kgUmmEUmYxMN2zOjXiADhNDJ4Fs8%2BrhaHEei4plCn0KCl5UJFRGCAv6qYmZl4lNtPzFD8wXSduj%2FXxEgRMCmsmjeqc9xLrIZk4jmsD7J1Cjb7bMB43iizj2uou%2B7QSUl4tHSH2GUNBhuFc9JCF%2F5pvcRRu%2BTcXYTi3KHUrJcQ7741WhQyS3QQgTOCx%2FNpFPlNAN5AOWP7dMolSLWq2tR12UteQz7a3Ds4B2ttcEzXSspzHoObO6CF12NprS%2B5QCgBk6VCYSD7P8MTBb0kkVxXaF9Z77QwdGn60dECbBrUEGuzAIc8no%2BAL2PQ0AXkGZSyHHgc8W4u45Ijmn9C3E20kuJN68djAczJwWg3iH2CGveAyQkxYIEReHfqoY7w17TvqSSwl2LC8%2FjYC%2B5kyt7wsycXtTTuKl9eDEfNQkLujzzWb2%2Frh50HW06%2BTtw5Newu2r7sth7ZQLr6%2BZnOBOXdgrwL5P7Jf9rC0raQrqrhlJGqEzegaB8J0JjvGmRX1YweBGME8QObiAclCWebgghmwvn9IFHm3PpmdlEsSmcSeb7VB%2BD9fLzGrxRV6QFEZtzIyrpDLdtY0Ohf6BZC3MLuVMhHmMjpUa7BFhykbk7qUiAMq3Gx0j0lzsnHoZHboBrodSnzFxyqDg</token>
+        <project.name>viacheslav_shchukin</project.name>
+    </properties>
     <profiles>
         <profile>
             <id>native</id>
@@ -68,7 +72,16 @@
                 <suite.file>./src/test/resources/webTNG.xml</suite.file>
             </properties>
         </profile>
+
+        <profile>
+            <id>cloudWeb</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+
     </profiles>
-
-
 </project>

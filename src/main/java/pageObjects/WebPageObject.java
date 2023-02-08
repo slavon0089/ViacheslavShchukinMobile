@@ -2,6 +2,7 @@ package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -23,8 +24,14 @@ public class WebPageObject  {
         this.searchRes = searchRes;
     }
 
-    @FindBy(xpath = "//input[@name='q']")
+    @AndroidFindBy(xpath = "//input[@name='q']")
+    //@iOSFindBy(xpath = "//input[@class='gLFyf']")
     public WebElement searchField;
+    @FindBy(xpath = "//button[@id='L2AGLb']")
+    public WebElement cookiesBtn;
+
+    @FindBy(xpath = "//button[@id='KByQx']")
+    public WebElement downBtn;
     @FindBy(xpath = "//*[contains(text(),\"EPAM\")]")
     public WebElement searchRes;
 
