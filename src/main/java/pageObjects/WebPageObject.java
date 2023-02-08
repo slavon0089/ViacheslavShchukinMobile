@@ -24,8 +24,7 @@ public class WebPageObject  {
         this.searchRes = searchRes;
     }
 
-    @AndroidFindBy(xpath = "//input[@name='q']")
-    //@iOSFindBy(xpath = "//input[@class='gLFyf']")
+    @FindBy(xpath = "//input[@name='q']")
     public WebElement searchField;
     @FindBy(xpath = "//button[@id='L2AGLb']")
     public WebElement cookiesBtn;
