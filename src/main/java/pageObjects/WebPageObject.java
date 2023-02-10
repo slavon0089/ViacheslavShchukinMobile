@@ -1,12 +1,19 @@
 package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class WebPageObject  {
+    @FindBy(xpath = "//input[@name='q']")
+    public WebElement searchField;
+
+    @FindBy(xpath = "//*[@id='rso']/*")
+    private List<WebElement> searchResList;
+
     public WebElement getSearchField() {
         return searchField;
     }
@@ -15,23 +22,19 @@ public class WebPageObject  {
         this.searchField = searchField;
     }
 
-    public WebElement getSearchRes() {
-        return searchRes;
-    }
-
-    public void setSearchRes(WebElement searchRes) {
-        this.searchRes = searchRes;
-    }
-
-    @FindBy(xpath = "//input[@name='q']")
-    public WebElement searchField;
-    @FindBy(xpath = "//*[contains(text(),\"EPAM\")]")
-    public WebElement searchRes;
-
     public WebPageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements(appiumDriver, this);
 
     }
-
+    public boolean isResultsContainsText(String search) {
+        for (WebElement result : searchResList) {
+            String text = result.getText();
+            if (text.contains(search)) {
+                System.out.println(text);
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

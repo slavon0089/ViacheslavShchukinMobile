@@ -29,6 +29,7 @@
                 <version>2.22.2</version>
                 <configuration>
                     <suiteXmlFiles>
+                        <!--suppress UnresolvedMavenProperty -->
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
@@ -50,17 +51,16 @@
 
     <profiles>
         <profile>
-            <id>native</id>
+            <id>HW2Native</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/nativeTNG.xml</suite.file>
+                <suite.file>./src/test/resources/loginAndRegTNG.xml</suite.file>
             </properties>
         </profile>
-
         <profile>
-            <id>web</id>
+            <id>HW2Web</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>

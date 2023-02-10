@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 import pageObjects.WebPageObject;
 import setup.BaseTest;
 
-import static data.InputData.baseURL;
-import static data.InputData.googleSearchText;
 import static org.testng.Assert.assertTrue;
 
 public class WebSearchMobileTests extends BaseTest {
+    public static String baseURL = "http://google.com";
+    public static String googleSearchText = "EPAM";
 
     @Test(groups = {"web"}, description = "Search EPAM in google")
     public void searchWebTest() {
@@ -24,11 +24,7 @@ public class WebSearchMobileTests extends BaseTest {
         getDriver().get(baseURL); // open google homepage
         WebPageObject wpo = new WebPageObject(getDriver());
         wpo.getSearchField().sendKeys(googleSearchText + Keys.ENTER);
-
-        assertTrue(wpo.getSearchRes().isEnabled());
+        assertTrue(wpo.isResultsContainsText(googleSearchText), "Messages in result don't match search request");
 
     }
-
-
-
 }

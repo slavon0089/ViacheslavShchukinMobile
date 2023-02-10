@@ -41,9 +41,6 @@ public class NativePageObject  {
     WebElement confirmRegBtn;
 
 
-    @FindBy(xpath = "//input[@name='q']")
-    WebElement searchField;
-
     public NativePageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements( new AppiumFieldDecorator(appiumDriver), this);
     }
