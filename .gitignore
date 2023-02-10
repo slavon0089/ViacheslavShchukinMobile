@@ -15,7 +15,6 @@ target/
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
-src/test/resources/config.properties
 
 ### Eclipse ###
 .apt_generated
