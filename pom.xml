@@ -71,6 +71,9 @@
 
         <profile>
             <id>HW3WebAndr</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <suite.file>./src/test/resources/hw3/cloudAndroidWebTNG.xml</suite.file>
             </properties>
@@ -78,6 +81,9 @@
 
         <profile>
             <id>HW3WebIOS</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <suite.file>./src/test/resources/hw3/cloudiOSWebTNG.xml</suite.file>
             </properties>
@@ -85,6 +91,9 @@
 
         <profile>
             <id>HW3NativeIOS</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <suite.file>./src/test/resources/hw3/cloudiOSNativeTNG.xml</suite.file>
             </properties>
@@ -92,6 +101,9 @@
 
         <profile>
             <id>HW3NativeAndr</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <suite.file>./src/test/resources/hw3/cloudAndroidNativeTNG.xml</suite.file>
             </properties>
