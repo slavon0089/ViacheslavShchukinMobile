@@ -1,6 +1,5 @@
 package scenarios;
 
-import data.InputData;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -9,12 +8,12 @@ import setup.BaseTest;
 
 import java.util.Objects;
 
-import static data.InputData.*;
-
 public class LoginAndRegNativeMobileTests extends BaseTest {
-
+    public static String userName = RandomStringUtils.random(10,true,false) +"@gmail.com";;
+    public static String password = RandomStringUtils.random(8,true,true);
     @Parameters("platformName")
-    @Test(groups = {"Registration"}, description = "The  log in test", priority = 1)
+    @Test(groups = {"Registration"}, description = "The  log in test")
+
     public void registrationNativeTest(String platformName) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
         getPo().getWelement("registerNewAccountBtn").click();
         getPo().getWelement("emailRegField").sendKeys(userName);
@@ -27,16 +26,10 @@ public class LoginAndRegNativeMobileTests extends BaseTest {
         }
         getPo().getWelement("confirmRegBtn").click();
         Assert.assertTrue(getPo().getWelement("signInBtn").isDisplayed());
-
-    }
-
-    @Test(groups = {"Registration"}, description = "The  log in test", priority = 2)
-    public void loginNativeTest() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
         getPo().getWelement("emailField").sendKeys(userName);
         getPo().getWelement("passwordField").sendKeys(password);
         getPo().getWelement("signInBtn").click();
         Assert.assertTrue(getPo().getWelement("budgetActivityList").isDisplayed());
+
     }
-
-
 }

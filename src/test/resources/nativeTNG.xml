@@ -3,7 +3,7 @@
     <parameter name="appType" value="native"></parameter>
     <parameter name="deviceName" value="emulator-5554"></parameter>
     <parameter name="platformName" value="Android"></parameter>
-    <parameter name="browserName" value="Chrome"></parameter>
+
     <test name="Native tests">
         <groups>
             <run>

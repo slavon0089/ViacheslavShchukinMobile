@@ -18,12 +18,16 @@ import static data.InputData.getProjectNameFromProperties;
 import static java.lang.String.format;
 
 public class BaseTest implements IDriver {
-
+    static final int waitTime = 10;
+    static final String isPageReadyScript = "return document.readyState";
+    static final String isPageReadyScriptResult = "complete";
     private static AppiumDriver appiumDriver; // singleton
     IPageObject po;
 
     @Override
-    public AppiumDriver getDriver() { return appiumDriver; }
+    public AppiumDriver getDriver() {
+        return appiumDriver;
+    }
 
     public IPageObject getPo() {
         return po;
@@ -46,8 +50,6 @@ public class BaseTest implements IDriver {
         setPageObject(appType, appiumDriver);
 
     }
-
-
 
     @AfterSuite(alwaysRun = true)
     public void tearDown() throws Exception {
@@ -76,26 +78,21 @@ public class BaseTest implements IDriver {
         capabilities.setCapability("bundleId",bundleId);
         //if(platformName.equals("iOS")) capabilities.setCapability("automationName","XCUITest");
 
-                String API_KEY = getApiKeyFromProperties();
-                String PROJECT_NAME = getProjectNameFromProperties();
+        String API_KEY = getApiKeyFromProperties();
+        String PROJECT_NAME = getProjectNameFromProperties();
         String token = URLEncoder.encode(API_KEY, StandardCharsets.UTF_8.name());
         try {
-           appiumDriver = new AppiumDriver(new URL(format("https://%s:%s@app.mobitru.com/wd/hub", PROJECT_NAME, token)), capabilities);
+            appiumDriver = new AppiumDriver(new URL(format("https://%s:%s@app.mobitru.com/wd/hub", PROJECT_NAME, token)), capabilities);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
         // Timeouts tuning
         appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
 
-
-
     private void setPageObject(String appType, AppiumDriver appiumDriver) throws Exception {
         po = new PageObject(appType, appiumDriver);
     }
-
-
 }
