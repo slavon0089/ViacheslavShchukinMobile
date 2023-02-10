@@ -6,8 +6,9 @@ import org.testng.annotations.Test;
 import setup.BaseTest;
 
 public class LoginAndRegNativeMobileTests extends BaseTest {
-    public static String userName = RandomStringUtils.random(10,true,false) +"@gmail.com";;
-    public static String password = RandomStringUtils.random(8,true,true);;
+    public static String userName = RandomStringUtils.random(10, true, false) + "@gmail.com";
+    public static String password = RandomStringUtils.random(8, true, true);
+
     @Test(groups = {"Registration"}, description = "The  log in test")
 
     public void registrationNativeTest() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
@@ -22,6 +23,5 @@ public class LoginAndRegNativeMobileTests extends BaseTest {
         getPo().getWelement("passwordField").sendKeys(userName);
         getPo().getWelement("signInBtn").click();
         Assert.assertTrue(getPo().getWelement("budgetActivityList").isDisplayed());
-
     }
 }

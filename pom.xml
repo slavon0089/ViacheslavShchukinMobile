@@ -53,7 +53,7 @@
         <profile>
             <id>HW2Native</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>./src/test/resources/loginAndRegTNG.xml</suite.file>

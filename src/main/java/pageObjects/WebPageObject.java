@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class WebPageObject  {
+public class WebPageObject {
     @FindBy(xpath = "//input[@name='q']")
     public WebElement searchField;
 
@@ -26,6 +26,7 @@ public class WebPageObject  {
         PageFactory.initElements(appiumDriver, this);
 
     }
+
     public boolean isResultsContainsText(String search) {
         for (WebElement result : searchResList) {
             String text = result.getText();

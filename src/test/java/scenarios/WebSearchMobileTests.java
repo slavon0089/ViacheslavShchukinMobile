@@ -25,6 +25,5 @@ public class WebSearchMobileTests extends BaseTest {
         WebPageObject wpo = new WebPageObject(getDriver());
         wpo.getSearchField().sendKeys(googleSearchText + Keys.ENTER);
         assertTrue(wpo.isResultsContainsText(googleSearchText), "Messages in result don't match search request");
-
     }
 }
