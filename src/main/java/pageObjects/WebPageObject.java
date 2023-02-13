@@ -14,6 +14,11 @@ public class WebPageObject {
     @FindBy(xpath = "//*[@id='rso']/*")
     private List<WebElement> searchResList;
 
+    @FindBy(xpath = "//button[@id='KByQx']")
+    public WebElement downPopUpBtn;
+    @FindBy(xpath = "//button[@id='L2AGLb']")
+    public WebElement cookiesBtn;
+
     public WebElement getSearchField() {
         return searchField;
     }
@@ -31,9 +36,12 @@ public class WebPageObject {
         boolean resultContains = false;
         for (WebElement result : searchResList) {
             String text = result.getText();
-            if (!text.contains(search)) {
-                resultContains= false;
-            } else resultContains = true;
+            if (text.contains(search)) {
+                resultContains = true;
+            } else {
+                resultContains = false;
+                break;
+            }
         }
         return resultContains;
     }
