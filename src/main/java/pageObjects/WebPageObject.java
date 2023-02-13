@@ -33,14 +33,14 @@ public class WebPageObject {
     }
 
     public boolean isResultsContainsText(String search) {
+        boolean resultContains = false;
         for (WebElement result : searchResList) {
             String text = result.getText();
-            if (text.contains(search)) {
-                System.out.println(text);
-                return true;
-            }
+            if (!text.contains(search)) {
+                resultContains= false;
+            } else resultContains = true;
         }
-        return false;
+        return resultContains;
     }
 
 }
