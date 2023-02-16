@@ -20,6 +20,7 @@ public class LoginAndRegNativeMobileTests extends BaseTest {
         getPo().getWelement("userRegField").sendKeys(userName);
         getPo().getWelement("passwordRegField").sendKeys(password);
         getPo().getWelement("confirmPasswordRegField").sendKeys(password);
+        //for iOS need confirm agreement and one more click to hide keyboard
         if (Objects.equals(platformName, "iOS")) {
             getPo().getWelement("agreamentsBtn").click();
             getPo().getWelement("confirmRegBtn").click();

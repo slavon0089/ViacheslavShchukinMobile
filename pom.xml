@@ -19,6 +19,11 @@
             <artifactId>testng</artifactId>
             <version>7.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.genium-framework</groupId>
+            <artifactId>Appium-Support</artifactId>
+            <version>1.0.5</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -31,9 +36,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <systemPropertyVariables>
-                        <ts.appium>https://${project.name}:${token}@app.mobitru.com/wd/hub</ts.appium>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>

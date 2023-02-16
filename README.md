@@ -13,3 +13,5 @@ src/test/resources/config.properties
 3. Для запуска web тестов, убедитесь, что на девайсах установлен Chrome browser на Android либо Safari browser на iOS 
 4. в .xml файлах по адресу src/test/resources/hw3 измените параметр deviceName и udid на ваши текущую модель устройства
 5. Web тесты проивзодятся в EU локации, с принятием GDPR, выбирайте девайсы с учетом этого, либо отключите проверку GDPR
+6. Для запуска Web тестов запустите комманду HW3WebAndr либо HW3Web либо HW3WebIOS 
+7. Для запуска Native тестов запустите комманду HW3NativeAndr либо HW3NativeIOS

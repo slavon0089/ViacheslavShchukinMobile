@@ -45,6 +45,7 @@ public class NativePageObject {
     WebElement confirmRegBtn;
 
 
+
     public NativePageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements(new AppiumFieldDecorator(appiumDriver), this);
     }

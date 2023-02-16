@@ -65,6 +65,9 @@ public class BaseTest implements IDriver {
         capabilities.setCapability("deviceName", deviceName);
         capabilities.setCapability("udid", udid);
 
+        capabilities.setCapability("unicodeKeyboard", "true");
+        capabilities.setCapability("resetKeyboard", "true");
+
         if(app.endsWith(".apk")) capabilities.setCapability("app", (new File(app)).getAbsolutePath());
 
         capabilities.setCapability("browserName", browserName);
