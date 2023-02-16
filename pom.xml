@@ -19,6 +19,11 @@
             <artifactId>testng</artifactId>
             <version>7.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.genium-framework</groupId>
+            <artifactId>Appium-Support</artifactId>
+            <version>1.0.5</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -31,14 +36,12 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -49,25 +52,63 @@
 
     <profiles>
         <profile>
-            <id>native</id>
+            <id>HW2Native</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/nativeTNG.xml</suite.file>
+                <suite.file>./src/test/resources/loginAndRegTNG.xml</suite.file>
             </properties>
         </profile>
 
         <profile>
-            <id>web</id>
+            <id>HW2Web</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>./src/test/resources/webTNG.xml</suite.file>
             </properties>
         </profile>
+
+        <profile>
+            <id>HW3WebAndr</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/hw3/cloudAndroidWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW3WebIOS</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/hw3/cloudiOSWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW3NativeIOS</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/hw3/cloudiOSNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>HW3NativeAndr</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/hw3/cloudAndroidNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
     </profiles>
-
-
 </project>
